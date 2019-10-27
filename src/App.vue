@@ -1,28 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <swiper v-model="selected"
+            autoplay>
+      <swiper-item name="box1">
+        <div class="content"
+             style="background: red">content1</div>
+      </swiper-item>
+      <swiper-item name="box2">
+        <div class="content"
+             style="background: green">content2</div>
+      </swiper-item>
+      <swiper-item name="box3">
+        <div class="content"
+             style="background: yellow">content3</div>
+      </swiper-item>
+    </swiper>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Swiper from './components/Swiper.vue'
+import SwiperItem from './components/SwiperItem.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Swiper,
+    SwiperItem
+  },
+  data () {
+    return {
+      selected: 'box2'
+    }
+  },
+  mounted () {
+
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+}
+.content {
+  width: 300px;
+  height: 150px;
 }
 </style>
